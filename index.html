@@ -13,13 +13,7 @@
             <input type="submit" value="Crear tarea">
         </form>
         <section class="tareas">
-        <!--  <div class="tarea"> esto representa las tareas a hacer 
-                <h3 class="visible">ToDoList Vanilla JS</h3>
-                <input type="text">
-                <a href="#" class="boton">editar</a>
-                <a href="#" class="boton">borrar</a>
-                <a href="#" class="estado"><span></span></a>
-            </div> esto representa las tareas a hacer -->
+        <tarea v-for="item in tareas" :key="item.id" :id="item.id" :tarea="item.tarea" :terminada="item.terminada" @toggle="toggleEstado"></tarea>
         </section>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
