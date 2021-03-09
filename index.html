@@ -8,12 +8,12 @@
 </head>
 <body>
     <div class="contenedor">
-        <form>
-            <input type="text">
+        <form @submit.prevent="tareaTemporal.trim()!='' ? crearTarea(tareaTemporal.trim()) : null">
+            <input type="text" v-model="tareaTemporal">
             <input type="submit" value="Crear tarea">
         </form>
         <section class="tareas">
-        <tarea v-for="item in tareas" :key="item.id" :id="item.id" :tarea="item.tarea" :terminada="item.terminada" @toggle="toggleEstado"></tarea>
+        <tarea v-for="item in tareas" :key="item.id" :id="item.id" :tarea="item.tarea" :terminada="item.terminada" :editando="false" @toggle="toggleEstado" @borrar="borrarTarea" @guardar="guardarTarea"></tarea>
         </section>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
